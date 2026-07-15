@@ -19,15 +19,53 @@ class ExternalApiController extends Controller
 
     //POST request example
     public function createUser(Request $request){
-        $response = Http::post(
-            'https://api.externa.com/customers',
-            [
-                'name' => 'Ricardo Salazar',
-                'email' => 'ricardo@email.com',
-                'phone' => '0991234567'
-            ]
-        );
+        // $response = Http::post(
+        //     'https://api.externa.com/customers',
+        //     [
+        //         'name' => 'Ricardo Salazar',
+        //         'email' => 'ricardo@email.com',
+        //         'phone' => '0991234567'
+        //     ]
+        // );
 
-        return $response->json();
+        // return $response->json();
+
+
+        //Con Token
+        // $response = Http::withToken($token)
+        // ->post(
+        //     'https://api.externa.com/customers',
+        //     [
+        //         'name' => 'Ricardo Salazar',
+        //         'email' => 'ricardo@email.com'
+        //     ]
+        // );
+        // if ($response->successful()) {
+        //     return response()->json([
+        //         'message' => 'Cliente enviado correctamente',
+        //         'data' => $response->json()
+        //     ]);
+        // }
+
+        // return response()->json([
+        //     'message' => 'Error enviando cliente'
+        // ], $response->status());
+
+
+        
+        // Manejo de Errores
+
+        // try {
+        // $response = Http::post($url, $data);
+
+        // if ($response->failed()) {
+        //     Log::error('Error API externa', [
+        //         'status' => $response->status(),
+        //         'body' => $response->body()
+        //     ]);
+        // }
+        // } catch (\Exception $e) {
+        //     Log::error($e->getMessage());
+        // }
     }
 }
